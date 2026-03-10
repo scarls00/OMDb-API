@@ -6,7 +6,7 @@
     <title>Movie Search</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://kit.fontawesome.com/6487f0a3d4.js"crossorigin="anonymous"></script>
-    <script src="app.js"></script>
+    <script src="app.js" defer></script>
 </head>
 <body>
     <div class="wrapper">
@@ -22,20 +22,20 @@
                 placeholder="Movie Title ..." id="movie-search-box"
                 onkeyup="findMovies()">
             <div class="search-list" id="search-list">
-                <!-- <div class="search-list-item">
-                    <div class="search-item-thumbnail">
-                        <img src="assets/Into-Thin-Air.jpg">
-                    </div>
-                    <div class="search-item-info">
-                        <h3 class="movie-title">Into Thin Air-Death on Everest</h3>
-                        <ul class="movie-misc-info">
-                            <li class="year">1996</li>
-                        </ul>
-                    </div>
-                </div>   -->
-            </div>
-        </div>
-        </div>
+          <select id="filter" onchange="filterMovies(event)">
+            <option value="" disabled selected>Sort</option>
+            <option value="A_TO_Z">Title, A to Z</option>
+            <option value="Z_TO_A">Title, Z to A</option>
+            <option value="Newest_to_Oldest">Year, Oldest to Newest</option>
+            <option value="Oldest_to_Newest">Year, Newest to Oldest</option>
+          </select>
+         </div>
+         <div class="movie movies__loading">
+          <i class="fas fa-spinner movies__loading--spinner"></i>   
+        </div>   
+      </div>
+     </div>
+    </div>
         <div class="container">
             <div class="results-container">
                 <div class="result-grid" id="result-grid">
