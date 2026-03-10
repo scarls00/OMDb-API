@@ -1,6 +1,3 @@
-https://www.omdbapi.com/?sapikey=f1e3b5d6
-http://www.omdbapi.com/?i=tt3896198&apikey=f1e3b5d6
-
 const movieSearchBox = document.getElementById(`movie-search-box`);
 const searchList =  document.getElementById(`search-list`);
 const r4esultGrid = document.getElementById(`result-grid`);
@@ -34,7 +31,49 @@ function displayMovieList(movies){
             moviePoster = "img_not_found.png";
 
         movieListItem.innerHTML = `
-            
+        <div class="search-item-thumbnail">
+            <img src="${moviePoster}">
+        </div>
+        <div class="search-item-info">
+            <h3>${movies[idx].Title}</h3>
+            <p>${movies[idx].Year}</p>
+        </div>
         `;
+        searchList.appendChild(movieListItem);
     }
+    loadMovieDetails();
 }
+
+function loadMovieDetails() {
+    const searchListMovies = searchList.querySelectorAll(`.search-list-item`);
+    searchListMovies.forEach(movie => {
+        movie.addEventListener(`click`, async () => {
+            searchList.classList.add(`hide-search-list`);
+            movieSearchBox.value = "";
+            const result = await fetch(`https://www.omdbapi.com/?i=${movie.dataset.id}&apikey=f1e3b5d6`);
+            const movieDetails = await result.json();
+            displayMovieDetails(movieDetails);
+        });
+    });
+}
+
+function displayMovieDetails(details){
+    resultGrid.innerHTML = `
+    <div class="movie-poster">
+            <img src="${(details.Poster != "N/A") ? 
+                details.Poster : "img_not-found.png"}" alt = "movie poster">
+        </div>
+        <div class="movie-info">
+        <h3 class="movie-title">${details.Title}</h3>
+        <ul class="movie-misc-info">
+            <li class="year">${details.Year}</li>
+        </ul>
+    </div> 
+    `;
+}
+
+window.addEventListener(`click`, (event) => {
+    if(event.target.className != "form-control"){
+        searchList.classList.add(`hide-search-list`);
+    }
+})

@@ -145,15 +145,14 @@ img{
 .result-container{
     padding: 3rem 0;
 }
-.movie-postr img{
+.movie-poster img{
     max-width: 300px;
-    margin: 0 auto;
+    margin: 70px auto;
     border: 4px solid #fff;
 }
 .movie-info{
     text-align: center;
     color: #fff;
-    padding-top: 3rem;
 }
 
 /* MOVIE INFO STYLING */
@@ -222,5 +221,5 @@ img{
         justify-content: flex-start;
         padding-left: 0;
     }
-    
+
 }
