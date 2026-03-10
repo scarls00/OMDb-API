@@ -189,30 +189,36 @@ overflow: hidden;
 .footer__column {
     display: flex;
     flex-direction: column;
-    flex: wrap;
     gap: 16px;
+    align-items: center;
     justify-content: space-around;
 }
 
-.footer__column--title {
+.footer__column--title:hover {
     font-size: 20px;
-    color: #f0e6ff;
+    color: black;
+    margin-bottom: 40px;
+    cursor: pointer;
 }
 
 .footer__column--link:hover {
     text-decoration-line: underline;
+    cursor: pointer;
 }
 
 .footer__links a {
     background: rgb(255, 255, 255);
     padding: 12px;
     display: flex;
+    justify-content: space-around;
     border-radius: 9999px;
 }
 
 .footer__links {
     display: flex;
+    justify-content: space-around;
     gap: 12px;
+    margin-bottom: 50px;
 }
 
 
