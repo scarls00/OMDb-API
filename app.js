@@ -1,9 +1,9 @@
 const movieSearchBox = document.getElementById(`movie-search-box`);
 const searchList =  document.getElementById(`search-list`);
-const r4esultGrid = document.getElementById(`result-grid`);
+const resultGrid = document.getElementById(`result-grid`);
 
 async function loadMovies(searchTerm){
-    const URL = `https://www.omdbapi.com/?s=${searchTerm}apikey=f1e3b5d6`;
+    const URL = `https://www.omdbapi.com/?s=${searchTerm}&apikey=f1e3b5d6`;
     const res = await fetch(`${URL}`);
     const data = await res.json();
     if(data.Response === "True") displayMovieList(data.Search);
@@ -25,7 +25,7 @@ function displayMovieList(movies){
         let movieListItem = document.createElement(`div`);
         movieListItem.dataset.id = movies[idx].imdbID;
         movieListItem.classList.add(`search-list-item`);
-        if(movies[idx].Poster != "N/A");
+        if(movies[idx].Poster != "N/A")
             moviePoster = movies[idx].Poster;
         else
             moviePoster = "img_not_found.png";
