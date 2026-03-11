@@ -24,24 +24,24 @@ function findMovies(){
     }
 }
 
-function displayMovieList() {
+function displayMovieList(moviesToDisplay = movies) {
     searchList.innerHTML = "";
-    for(let idx = 0; idx < movies.length; idx++){
+    for(let idx = 0; idx < moviesToDisplay.length; idx++){
         let movieListItem = document.createElement(`div`);
-        movieListItem.dataset.id = movies[idx].imdbID;
+        movieListItem.dataset.id = moviesToDisplay[idx].imdbID;
         movieListItem.classList.add(`search-list-item`);
-        if(movies[idx].Poster != "N/A")
-            moviePoster = movies[idx].Poster;
+        if(moviesToDisplay[idx].Poster != "N/A")
+            moviePoster = moviesToDisplay[idx].Poster;
         else
-            moviePoster = "./assets/img_not_found.png";
+            moviePoster = "./assets/img-not-found.png";
 
         movieListItem.innerHTML = `
         <div class="search-item-thumbnail">
             <img src="${moviePoster}">
         </div>
         <div class="search-item-info">
-            <h3>${movies[idx].Title}</h3>
-            <p>${movies[idx].Year}</p>
+            <h3>${moviesToDisplay[idx].Title}</h3>
+            <p>${moviesToDisplay[idx].Year}</p>
         </div>
         `;
         searchList.appendChild(movieListItem);
@@ -66,7 +66,7 @@ function displayMovieDetails(details){
     resultGrid.innerHTML = `
     <div class="movie-poster">
             <img src="${(details.Poster != "N/A") ? 
-                details.Poster : "img_not-found.png"}" alt = "movie poster">
+                details.Poster : ".assets/img-not-found.png"}" alt = "movie poster">
         </div>
         <div class="movie-info">
         <h3 class="movie-title">${details.Title}</h3>
@@ -78,7 +78,11 @@ function displayMovieDetails(details){
 }
 
 window.addEventListener(`click`, (event) => {
-    if(event.target.className != "form-control"){
+    if(
+        event.target.className != "form-control" &&
+        event.target.id !== "filter" &&
+        !event.target.closest("#search-list")
+    ){
         searchList.classList.add(`hide-search-list`);
     }
 })
