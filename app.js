@@ -11,6 +11,7 @@ async function loadMovies(searchTerm){
     if(data.Response === "True") {
         movies = data.Search;
         displayMovieList(movies);
+    }
 }
 
 function findMovies(){
@@ -23,7 +24,7 @@ function findMovies(){
     }
 }
 
-function displayMovieList(movies){
+function displayMovieList() {
     searchList.innerHTML = "";
     for(let idx = 0; idx < movies.length; idx++){
         let movieListItem = document.createElement(`div`);
@@ -32,7 +33,7 @@ function displayMovieList(movies){
         if(movies[idx].Poster != "N/A")
             moviePoster = movies[idx].Poster;
         else
-            moviePoster = "img_not_found.png";
+            moviePoster = "./assets/img_not_found.png";
 
         movieListItem.innerHTML = `
         <div class="search-item-thumbnail">
