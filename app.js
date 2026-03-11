@@ -2,13 +2,15 @@ const movieSearchBox = document.getElementById(`movie-search-box`);
 const searchList =  document.getElementById(`search-list`);
 const resultGrid = document.getElementById(`result-grid`);
 
-let movies
+let movies = [];
 
 async function loadMovies(searchTerm){
     const URL = `https://www.omdbapi.com/?s=${searchTerm}&apikey=f1e3b5d6`;
-    const res = await fetch(`${URL}`);
+    const res = await fetch(URL);
     const data = await res.json();
-    if(data.Response === "True") displayMovieList(data.Search);
+    if(data.Response === "True") {
+        movies = data.Search;
+        displayMovieList(movies);
 }
 
 function findMovies(){
@@ -80,35 +82,59 @@ window.addEventListener(`click`, (event) => {
     }
 })
 
-async function renderMovies(filter) {
-    const listElement = document.getElementById(`sortable-list`);
-    const API_URL = `https://www.omdbapi.com/?i=${item.title}&apikey=f1e3b5d6`
-    
-    try {
-        const response = await fetch(API_URL);
-        const data = await response.json();
+function filterMovies(event){
+    const filter = event.target.value;
 
-        listElement.innerHTML = ``;
-
-        data.forEach(item => {
-            const textContent = item.title; 
-        });
-    }catch (error) {
-        console.error("Error fetching data:", error);
+    if(filter === "A_TO_Z"){
+        movies.sort((a,b) => a.Title.localeCompare(b.Title));
     }
-  }
 
-function sortListById() {
-    const listElement = document.getElementById(`sortable-list`);
-    const listItemElements = [...listElement.querySelectorAll(`:scope > item.title`)];
-
-    listItemElements.sort((a, b) => {
-        const idA = parseInt(a.getAttribute(`data-id`));
-        const idB = parseInt(b.getAttribute(`data-id`));
-        return idA - idB;
-    })
-    for (const item.title of listItemElements) {
-        listElement.appendChild(item.title;)
+    if(filter === "Z_TO_A"){
+        movies.sort((a,b) => b.Title.localeCompare(a.Title));
     }
+
+    if(filter === "Newest_to_Oldest"){
+        movies.sort((a,b) => b.Year - a.Year);
+    }
+
+    if(filter === "Oldest_to_Newest"){
+        movies.sort((a,b) => a.Year - b.Year);
+    }
+
+    displayMovieList(movies);
 }
 
+
+
+
+// async function renderMovies(filter) {
+//     const listElement = document.getElementById(`sortable-list`);
+//     const API_URL = `https://www.omdbapi.com/?i=${item.title}&apikey=f1e3b5d6`
+    
+//     try {
+//         const response = await fetch(API_URL);
+//         const data = await response.json();
+
+//         listElement.innerHTML = ``;
+
+//         data.forEach(item => {
+//             const textContent = item.title; 
+//         });
+//     }catch (error) {
+//         console.error("Error fetching data:", error);
+//     }
+//   }
+
+// function sortListById() {
+//     const listElement = document.getElementById(`sortable-list`);
+//     const listItemElements = [...listElement.querySelectorAll(`:scope > item.title`)];
+
+//     listItemElements.sort((a, b) => {
+//         const idA = parseInt(a.getAttribute(`data-id`));
+//         const idB = parseInt(b.getAttribute(`data-id`));
+//         return idA - idB;
+//     })
+//     for (const item.title of listItemElements) {
+//         listElement.appendChild(item.title;)
+//     }
+// }
