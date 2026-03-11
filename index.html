@@ -15,6 +15,13 @@
             <img src="assets/omdb-logo.jpeg" alt="OMDb logo">
             </div>
         </div>
+        <select id="filter" onchange="filterMovies(event)">
+            <option value="" disabled selected>Sort</option>
+            <option value="A_TO_Z">Title, A to Z</option>
+            <option value="Z_TO_A">Title, Z to A</option>
+            <option value="Newest_to_Oldest">Year, Oldest to Newest</option>
+            <option value="Oldest_to_Newest">Year, Newest to Oldest</option>
+        </select>
         <div class="search-container">
             <div class="search-element">
             <h3>Search Movie:</h3>
@@ -22,13 +29,6 @@
                 placeholder="Movie Title ..." id="movie-search-box"
                 onkeyup="findMovies()">
             <div class="search-list" id="search-list">
-          <select id="filter" onchange="filterMovies(event)">
-            <option value="" disabled selected>Sort</option>
-            <option value="A_TO_Z">Title, A to Z</option>
-            <option value="Z_TO_A">Title, Z to A</option>
-            <option value="Newest_to_Oldest">Year, Oldest to Newest</option>
-            <option value="Oldest_to_Newest">Year, Newest to Oldest</option>
-          </select>
          </div>
          <div class="movie movies__loading">
           <i class="fas fa-spinner movies__loading--spinner"></i>   
