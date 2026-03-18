@@ -1,81 +1,87 @@
+Code:
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movie Search</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://kit.fontawesome.com/6487f0a3d4.js"crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      src="https://kit.fontawesome.com/6487f0a3d4.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="app.js" defer></script>
-</head>
-<body>
+  </head>
+  <body>
     <div class="wrapper">
-        <div class="logo">
-            <div class="container">
-            <img src="assets/omdb-logo.jpeg" alt="OMDb logo">
-            </div>
-        </div>
-        <select id="filter" onchange="filterMovies(event)">
-            <option value="" disabled selected>Sort</option>
-            <option value="A_TO_Z">Title, A to Z</option>
-            <option value="Z_TO_A">Title, Z to A</option>
-            <option value="Newest_to_Oldest">Year, Newest to Oldest</option>
-            <option value="Oldest_to_Newest">Year, Oldest to Newest</option>
-        </select>
-        <div class="search-container">
-            <div class="search-element">
-            <h3>Search Movie:</h3>
-            <input type="text" class="form-control"
-                placeholder="Movie Title ..." id="movie-search-box"
-                onkeyup="findMovies()">
-            <div class="search-list" id="search-list">
-         </div>
-         <div class="movie movies__loading">
-          <i class="fas fa-spinner movies__loading--spinner"></i>   
-        </div>   
-      </div>
-     </div>
-    </div>
+      <div class="logo">
         <div class="container">
-            <div class="results-container">
-                <div class="result-grid" id="result-grid">
-                    <div class="movie-poster">
-                        <img src="assets/Jurassic-Park.jpg" alt="best movie ever">
-                    </div>
-                    <div class="movie-info">
-                    <h3 class="movie-title">Jurassic Park</h3>
-                    <ul class="movie-misc-info">
-                        <li class="year">1993</li>
-                    </ul>
-                </div>
-            </div>
+          <img src="assets/omdb-logo.jpeg" alt="OMDb logo" />
         </div>
+      </div>
+      <select id="filter" onchange="filterMovies(event)">
+        <option value="" disabled selected>Sort</option>
+        <option value="A_TO_Z">Title, A to Z</option>
+        <option value="Z_TO_A">Title, Z to A</option>
+        <option value="Newest_to_Oldest">Year, Newest to Oldest</option>
+        <option value="Oldest_to_Newest">Year, Oldest to Newest</option>
+      </select>
+      <div class="search-container">
+        <div class="search-element">
+          <h3>Search Movie:</h3>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Movie Title ..."
+            id="movie-search-box"
+            onkeyup="findMovies()"
+          />
+          <div class="search-list" id="search-list"></div>
+          <div class="movie movies__loading">
+            <i class="fas fa-spinner movies__loading--spinner"></i>
+          </div>
+        </div>
+      </div>
     </div>
-</body>
-<footer>
-        <div class="container__footer container">
-          <div class="row--footer row">
-            <div class="footer__column">
-              <h3 class="footer__column--title">SIGN IN</h3><a href="#" class=""></a>
-            </div>
-            <div class="footer__column">
-              <h3 class="footer__column--title">SITE INDEX</h3><a href="#" class=""></a>
-            </div>
-            <div class="footer__column">
-              <h3 class="footer__column--title">PRESS</h3><a href="#" class=""></a>
-            </div>
-            <div class="footer__column">
-              <h3 class="footer__column--title">CAREERS</h3><a href="#" class=""</a>
-          </div>
+  </body>
+  <footer>
+    <div class="container__footer container">
+      <div class="row--footer row">
+        <div class="footer__column">
+          <h3 class="footer__column--title">SIGN IN</h3>
+          <a href="#" class=""></a>
         </div>
-          <div class="footer__links">
-              <a href="#" class="footer__link"><i class="fa-brands fa-facebook-f"></i></a>
-              <a href="#" class="footer__link"><i class="fa-brands fa-twitter"></i></a>
-              <a href="#" class="footer__link"><i class="fa-brands fa-youtube"></i></a>
-          </div>
-          <div class="copyright">
-             <p> Copyright 2026 OMDb. All rights reserved.</p>          
+        <div class="footer__column">
+          <a href="#" class="">
+            <h3 class="footer__column--title">SITE INDEX</h3>
+          </a>
         </div>
-       </div>
-    </footer> 
+        <div class="footer__column">
+          <a href="#" class="">
+            <h3 class="footer__column--title">PRESS</h3>
+          </a>
+        </div>
+        <div class="footer__column">
+          <a href="#" class="">
+            <h3 class="footer__column--title">CAREERS</h3>
+          </a>
+        </div>
+      </div>
+      <div class="footer__links">
+        <a href="#" class="footer__link"
+          ><i class="fa-brands fa-facebook-f"></i
+        ></a>
+        <a href="#" class="footer__link"
+          ><i class="fa-brands fa-twitter"></i
+        ></a>
+        <a href="#" class="footer__link"
+          ><i class="fa-brands fa-youtube"></i
+        ></a>
+      </div>
+      <div class="copyright">
+        <p>Copyright 2026 OMDb. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 </html>

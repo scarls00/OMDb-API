@@ -5,23 +5,23 @@ const resultGrid = document.getElementById(`result-grid`);
 let movies = [];
 
 async function loadMovies(searchTerm){
-    const URL = `https://www.omdbapi.com/?s=${searchTerm}&apikey=f1e3b5d6`;
-    const res = await fetch(URL);
-    const data = await res.json();
+  const URL = `https://www.omdbapi.com/?s=${searchTerm}&apikey=f1e3b5d6`;
+  const res = await fetch(URL);
+  const data = await res.json();
     if(data.Response === "True") {
-        movies = data.Search;
-        displayMovieList(movies);
-    }
+    movies = data.Search;
+    displayMovieList(movies);
+  }
 }
 
 function findMovies(){
     let searchTerm = (movieSearchBox.value).trim();
     if(searchTerm.length > 0){
-        searchList.classList.remove(`hide-search-list`);
-        loadMovies(searchTerm);
-    } else {
-        searchList.classList.add(`hide-search-list`);
-    }
+    searchList.classList.remove(`hide-search-list`);
+    loadMovies(searchTerm);
+  } else {
+    searchList.classList.add(`hide-search-list`);
+  }
 }
 
 function displayMovieList(moviesToDisplay = movies) {
@@ -43,27 +43,27 @@ function displayMovieList(moviesToDisplay = movies) {
             <h3>${moviesToDisplay[idx].Title}</h3>
             <p>${moviesToDisplay[idx].Year}</p>
         </div>
-        `;
+    `;
         searchList.appendChild(movieListItem);
     }
     loadMovieDetails();
 }
 
 function loadMovieDetails() {
-    const searchListMovies = searchList.querySelectorAll(`.search-list-item`);
+  const searchListMovies = searchList.querySelectorAll(`.search-list-item`);
     searchListMovies.forEach(movie => {
-        movie.addEventListener(`click`, async () => {
-            searchList.classList.add(`hide-search-list`);
-            movieSearchBox.value = "";
+    movie.addEventListener(`click`, async () => {
+      searchList.classList.add(`hide-search-list`);
+      movieSearchBox.value = "";
             const result = await fetch(`https://www.omdbapi.com/?i=${movie.dataset.id}&apikey=f1e3b5d6`);
-            const movieDetails = await result.json();
-            displayMovieDetails(movieDetails);
-        });
+      const movieDetails = await result.json();
+      displayMovieDetails(movieDetails);
     });
+  });
 }
 
 function displayMovieDetails(details){
-    resultGrid.innerHTML = `
+  resultGrid.innerHTML = `
     <div class="movie-poster">
             <img src="${(details.Poster != "N/A") ? 
                 details.Poster : ".assets/img-not-found.png"}" alt = "movie poster">
@@ -79,34 +79,34 @@ function displayMovieDetails(details){
 
 window.addEventListener(`click`, (event) => {
     if(
-        event.target.className != "form-control" &&
-        event.target.id !== "filter" &&
-        !event.target.closest("#search-list")
+    event.target.className != "form-control" &&
+    event.target.id !== "filter" &&
+    !event.target.closest("#search-list")
     ){
-        searchList.classList.add(`hide-search-list`);
-    }
+    searchList.classList.add(`hide-search-list`);
+  }
 })
 
 function filterMovies(event){
-    const filter = event.target.value;
+  const filter = event.target.value;
 
     if(filter === "A_TO_Z"){
         movies.sort((a,b) => a.Title.localeCompare(b.Title));
-    }
+  }
 
     if(filter === "Z_TO_A"){
         movies.sort((a,b) => b.Title.localeCompare(a.Title));
-    }
+  }
 
     if(filter === "Newest_to_Oldest"){
         movies.sort((a,b) => b.Year - a.Year);
-    }
+  }
 
     if(filter === "Oldest_to_Newest"){
         movies.sort((a,b) => a.Year - b.Year);
-    }
+  }
 
-    displayMovieList(movies);
+  displayMovieList(movies);
 }
 
 
@@ -115,7 +115,7 @@ function filterMovies(event){
 // async function renderMovies(filter) {
 //     const listElement = document.getElementById(`sortable-list`);
 //     const API_URL = `https://www.omdbapi.com/?i=${item.title}&apikey=f1e3b5d6`
-    
+
 //     try {
 //         const response = await fetch(API_URL);
 //         const data = await response.json();
@@ -123,7 +123,7 @@ function filterMovies(event){
 //         listElement.innerHTML = ``;
 
 //         data.forEach(item => {
-//             const textContent = item.title; 
+//             const textContent = item.title;
 //         });
 //     }catch (error) {
 //         console.error("Error fetching data:", error);
