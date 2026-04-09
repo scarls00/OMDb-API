@@ -26,9 +26,9 @@ img{
 }
 
 .logo {
-    height: 150px;
-    width: 150px;
-    margin: 20px 20px 50px 20px;
+    height: 50vh;
+    width: 25vw;
+    margin: 20px 20px 20px 20px;
 }
 
 .wrapper{
@@ -39,12 +39,12 @@ img{
 .wrapper .container{
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0;
 }
 
 
 
-/* SEARCH FUNCTION */
+SEARCH FUNCTION
 
 /* .search-container{
     background-color: var(--md-dark-color);
