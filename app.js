@@ -49,18 +49,18 @@ function displayMovieList(moviesToDisplay = movies) {
     loadMovieDetails();
 }
 
-// function loadMovieDetails() {
-//     const searchListMovies = searchList.querySelectorAll(`.search-list-item`);
-//     searchListMovies.forEach(movie => {
-//         movie.addEventListener(`click`, async () => {
-//             searchList.classList.add(`hide-search-list`);
-//             movieSearchBox.value = "";
-//             const result = await fetch(`https://www.omdbapi.com/?i=${movie.dataset.id}&apikey=f1e3b5d6`);
-//             const movieDetails = await result.json();
-//             displayMovieDetails(movieDetails);
-//         });
-//     });
-// }
+function loadMovieDetails() {
+    const searchListMovies = searchList.querySelectorAll(`.search-list-item`);
+    searchListMovies.forEach(movie => {
+        movies.addEventListener(`click`, async () => {
+            searchList.classList.add(`hide-search-list`);
+            movieSearchBox.value = "";
+            const result = await fetch(`https://www.omdbapi.com/?i=${movie.dataset.id}&apikey=f1e3b5d6`);
+            const movieDetails = await result.json();
+            displayMovieDetails(movieDetails);
+        });
+    });
+}
 
 function displayMovieDetails(details){
   resultGrid.innerHTML = `
