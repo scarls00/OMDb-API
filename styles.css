@@ -38,7 +38,7 @@ img{
 .wrapper .container{
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0;
+    padding:0;
 }
 
 
@@ -47,7 +47,8 @@ img{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 0;
+    background-color: #171717;
+    padding: 100px 0;
 }
 
 
