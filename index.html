@@ -1,5 +1,3 @@
-Code:
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,12 +12,17 @@ Code:
     <script src="app.js" defer></script>
   </head>
   <body>
+   <nav>
     <div class="wrapper">
       <div class="logo">
         <div class="container">
           <img src="assets/omdb-logo.jpeg" alt="OMDb logo" />
         </div>
       </div>
+   </nav>   
+<main>
+  <div class="wrapper">
+    <div class="container">
       <select id="filter" onchange="filterMovies(event)">
         <option value="" disabled selected>Sort</option>
         <option value="A_TO_Z">Title, A to Z</option>
@@ -47,6 +50,7 @@ Code:
       </div>
     </div>
   </body>
+</main>
   <footer>
     <div class="container__footer container">
       <div class="row--footer row">
