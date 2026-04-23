@@ -56,13 +56,8 @@ img{
 
 SEARCH FUNCTION
 
-/* .search-container{
-    background-color: var(--md-dark-color);
-    height: 180px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-} */
+.search-container {
+}
 
 .search-element{
     display: flex;
@@ -143,6 +138,9 @@ SEARCH FUNCTION
     border-radius: 10px;
 }
 
+#filter {
+    margin-bottom: 32px;
+}
 
 
 
