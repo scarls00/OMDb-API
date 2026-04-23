@@ -217,6 +217,7 @@ overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: var(--dark-color);
 }
 
 .footer__column--link:hover {
