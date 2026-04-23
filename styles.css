@@ -191,6 +191,7 @@ overflow: hidden;
 }
 
 .row--footer {
+    display: flex;
     justify-content: space-between;
 }
 
@@ -202,11 +203,20 @@ overflow: hidden;
     justify-content: space-around;
 }
 
+.footer__column--title {
+    margin-bottom: 40px;
+}
+
 .footer__column--title:hover {
     font-size: 20px;
     color: black;
-    margin-bottom: 40px;
     cursor: pointer;
+}
+
+.footer__column--link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .footer__column--link:hover {
@@ -220,6 +230,7 @@ overflow: hidden;
     display: flex;
     justify-content: space-around;
     border-radius: 9999px;
+    margin-top: 40px;
 }
 
 .footer__links {
