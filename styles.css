@@ -58,13 +58,13 @@ img{
     align-items: center;
     gap: 32px;
     margin-right: 40px;
-    text-decoration: none;
 }
 
 .nav__link a {
     color: #fff;
     font-size: 24px;
     transition: color 200ms ease;
+    text-decoration: none;
 }
 
 .nav__link a:hover {
@@ -84,10 +84,10 @@ img{
 
 .search-element{
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    position: relative;
+    gap: 16px;
 }
 
 .search-element h3{
@@ -162,8 +162,9 @@ img{
 }
 
 #filter {
-    align-items: center;
-    margin-bottom: 32px;
+    margin-bottom: 0;
+    padding: 1rem;
+    font-size: 1rem;
 }
 
 
@@ -323,12 +324,5 @@ overflow: hidden;
     .movie-info .movie-misc-info{
         justify-content: flex-start;
         padding-left: 0;
-    }
-    .row--footer {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-        align-items: center;
-        justify-content: space-around;
     }
 }
